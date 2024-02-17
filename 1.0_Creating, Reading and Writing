@@ -1,1 +1,10 @@
+#### Getting started
+import pandas as pd
+-------------------
+### Creating data
+# There are two core objects in pandas: the DataFrame and the Series.
+
+## DataFrame
+pd.DataFrame({'Yes': [50, 21], 'No': [131, 2]})
+------------------
 
