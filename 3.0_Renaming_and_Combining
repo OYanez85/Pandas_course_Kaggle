@@ -1,1 +1,32 @@
+#### Renaming and Combining
+
+### Renaming
+----------------------
+# rename(), which lets you change index names and/or column names. For example, to change the points column in our dataset to score, we would do:
+reviews.rename(columns={'points': 'score'})
+-----------------------
+# rename() lets you rename index or column values by specifying a index or column keyword parameter, respectively. 
+# It supports a variety of input formats, but usually a Python dictionary is the most convenient. 
+# Here is an example using it to rename some elements of the index.
+# You'll probably rename columns very often, but rename index values very rarely. For that, set_index() is usually more convenient.
+
+reviews.rename(index={0: 'firstEntry', 1: 'secondEntry'})
+------------------------
+# Both the row index and the column index can have their own name attribute. 
+# The complimentary rename_axis() method may be used to change these names. For example:
+
+reviews.rename_axis("wines", axis='rows').rename_axis("fields", axis='columns')
+-------------------------
+### Combining
+
+canadian_youtube = pd.read_csv("../input/youtube-new/CAvideos.csv")
+british_youtube = pd.read_csv("../input/youtube-new/GBvideos.csv")
+
+pd.concat([canadian_youtube, british_youtube])
+-------------------------------------------------------------------
+left = canadian_youtube.set_index(['title', 'trending_date'])
+right = british_youtube.set_index(['title', 'trending_date'])
+
+left.join(right, lsuffix='_CAN', rsuffix='_UK')
+-------------------------------------------------------------------
 
