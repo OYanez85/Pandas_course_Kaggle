@@ -1,1 +1,60 @@
+#### Indexing, Selecting & Assigning
+### Native accessors
+----------------
+reviews
+--------------
+# In Python, we can access the property of an object by accessing it as an attribute.
+# Columns in a pandas DataFrame work in much the same way.
+# Hence to access the country property of reviews we can use:
+reviews.country
+-------------
+reviews['country']
+-------------
+reviews['country'][0]
+-------------
+### Indexing in pandas
+# pandas has its own accessor operators, loc and iloc
 
+## Index-based selection
+reviews.iloc[0]
+------------
+reviews.iloc[:, 0]
+-------------
+reviews.iloc[:3, 0]
+-----------
+reviews.iloc[1:3, 0]
+---------------
+reviews.iloc[[0, 1, 2], 0]
+-----------------
+reviews.iloc[-5:]
+-----------------
+## Label-based selection
+
+reviews.loc[0, 'country']
+-------------------
+reviews.loc[:, ['taster_name', 'taster_twitter_handle', 'points']]
+---------------------
+### Choosing between loc and iloc
+## Manipulating the index
+reviews.set_index("title")
+-------------
+## Conditional selection
+reviews.country == 'Italy'
+---------------
+reviews.loc[reviews.country == 'Italy']
+---------------
+reviews.loc[(reviews.country == 'Italy') & (reviews.points >= 90)]
+--------------------
+reviews.loc[(reviews.country == 'Italy') | (reviews.points >= 90)]
+----------------------
+reviews.loc[reviews.country.isin(['Italy', 'France'])]
+----------------------
+reviews.loc[reviews.price.notnull()]
+----------------------
+## Assigning data
+reviews['critic'] = 'everyone'
+reviews['critic']
+--------------
+reviews['index_backwards'] = range(len(reviews), 0, -1)
+reviews['index_backwards']
+--------------
