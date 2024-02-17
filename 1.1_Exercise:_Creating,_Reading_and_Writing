@@ -1,1 +1,21 @@
+1.
+# Your code goes here. Create a dataframe matching the above diagram and assign it to the variable fruits.
+fruits = pd.DataFrame({'Apples': [30], 'Bananas':[21]})
+#pd.DataFrame({'Yes': [50, 21], 'No': [131, 2]})
+
+# Check your answer
+q1.check()
+fruits
+
+2.
+# Your code goes here. Create a dataframe matching the above diagram and assign it to the variable fruit_sales.
+import pandas as pd
+
+fruit_sales = pd.DataFrame({'Apples':[35, 41],'Bananas':[21, 34]},
+                index=['2017 Sales', '2018 Sales'])
+# Check your answer
+q2.check()
+fruit_sales
+
+3. 
 
