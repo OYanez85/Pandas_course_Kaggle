@@ -18,4 +18,26 @@ q2.check()
 fruit_sales
 
 3. 
+ingredients = pd.Series(['4 cups', '1 cup', '2 large', '1 can'], index=['Flour', 'Milk', 'Eggs', 'Spam'], name='Dinner')
+
+# Check your answer
+q3.check()
+ingredients
+
+4. 
+#reviews = wine_reviews = pd.read_csv("../input/wine-reviews/winemag-data-130k-v2.csv")
+#wine_reviews.shape
+# We can examine the contents of the resultant DataFrame using the head() command, which grabs the first five rows:
+#wine_reviews.head()
+#wine_reviews = pd.read_csv("../input/wine-reviews/winemag-data-130k-v2.csv", index_col=0)
+#wine_reviews.head()
+reviews = pd.read_csv('../input/wine-reviews/winemag-data_first150k.csv', index_col=0)
+
+# Check your answer
+q4.check()
+reviews
+
+5.
+
+
 
