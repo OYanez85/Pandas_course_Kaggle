@@ -1,1 +1,34 @@
+#### Introduction
+------------------
+reviews
+---------------------
+### Summary functions
+---------------------
+reviews.points.describe()
+--------------------------
+reviews.taster_name.describe()
+-------------------------
+reviews.points.mean()
+---------------------------
+reviews.taster_name.unique()
+--------------------------------
+reviews.taster_name.value_counts()
+-------------------------
+### Maps
+-------------------------------
+review_points_mean = reviews.points.mean()
+reviews.points.map(lambda p: p - review_points_mean)
+--------------------------------
+def remean_points(row):
+    row.points = row.points - review_points_mean
+    return row
 
+reviews.apply(remean_points, axis='columns')
+--------------------------
+reviews.head(1)
+----------------------------
+review_points_mean = reviews.points.mean()
+reviews.points - review_points_mean
+-------------------------------
+reviews.country + " - " + reviews.region_1
+-------------------------------
