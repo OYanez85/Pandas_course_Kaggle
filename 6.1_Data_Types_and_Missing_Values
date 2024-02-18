@@ -18,4 +18,7 @@ print(n_missing_prices)
 q3.check()
 
 4.
-
+reviews_per_region = reviews.region_1.fillna('Unknown').value_counts().sort_values(ascending=False)
+print(reviews_per_region)
+# Check your answer
+q4.check()
