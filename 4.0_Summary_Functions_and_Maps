@@ -16,19 +16,35 @@ reviews.taster_name.value_counts()
 -------------------------
 ### Maps
 -------------------------------
+# There are two mapping methods that you will use often.
+# map() is the first, and slightly simpler one. 
+# For example, suppose that we wanted to remean the scores the wines received to 0. We can do this as follows:
+
 review_points_mean = reviews.points.mean()
 reviews.points.map(lambda p: p - review_points_mean)
 --------------------------------
+# apply() is the equivalent method if we want to transform a whole DataFrame by calling a custom method on each row.
+
 def remean_points(row):
     row.points = row.points - review_points_mean
     return row
 
 reviews.apply(remean_points, axis='columns')
 --------------------------
+#Note that map() and apply() return new, transformed Series and DataFrames, respectively. 
+#They don't modify the original data they're called on. 
+#If we look at the first row of reviews, we can see that it still has its original points value.
+
 reviews.head(1)
 ----------------------------
+# Pandas provides many common mapping operations as built-ins. 
+# For example, here's a faster way of remeaning our points column:
+
 review_points_mean = reviews.points.mean()
 reviews.points - review_points_mean
 -------------------------------
+#Pandas will also understand what to do if we perform these operations between Series of equal length. 
+#For example, an easy way of combining country and region information in the dataset would be to do the following:
+
 reviews.country + " - " + reviews.region_1
 -------------------------------
