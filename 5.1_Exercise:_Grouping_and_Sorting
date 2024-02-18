@@ -1,1 +1,58 @@
+1.
+
+# Your code here
+reviews_written = reviews.groupby('taster_twitter_handle').taster_twitter_handle.count()
+reviews_written_sorted = reviews_written.sort_values(ascending=False)
+print(reviews_written_sorted)
+
+# Check your answer
+q1.check()
+
+2.
+
+best_rating_per_price = reviews.groupby('price')['points'].max().sort_index
+#best_rating_per_price_sorted = best_rating_per_price.sort_index(ascending=False)
+print(best_rating_per_price)
+
+#sorted_by_price = reviews.sort_values(by='price', ascending=False)
+#print(sorted_by_price)
+
+sorted_by_points = reviews.sort_values(by='points', ascending=False)
+print(sorted_by_points)
+
+
+# Check your answer
+q2.check()
+
+3.
+price_extremes = reviews.groupby(['variety']).price.agg([ min, max])
+print(price_extremes)
+
+# Check your answer
+q3.check()
+
+4.
+
+price_extremes = reviews.groupby(['variety']).price.agg([ min, max])
+#print(price_extremes)
+sorted_varieties = price_extremes.sort_values(by=['min','max'], ascending=[False, False])
+print(sorted_varieties)
+
+# Check your answer
+q4.check()
+
+5.
+reviewer_mean_ratings = reviews.groupby('taster_name')['points'].mean()
+sorted_reviewer_mean_ratings = reviewer_mean_ratings.sort_values(ascending=False)
+print(sorted_reviewer_mean_ratings)
+
+# Check your answer
+q5.check()
+
+6.
+country_variety_counts = reviews.groupby(['country', 'variety']).size().sort_values(ascending=False)
+print(country_variety_counts)
+
+# Check your answer
+q6.check()
 
