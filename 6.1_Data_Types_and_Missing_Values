@@ -12,4 +12,10 @@ point_strings = reviews.points.astype('str')
 q2.check()
 
 3.
+n_missing_prices = pd.isnull(reviews.price).sum()
+print(n_missing_prices)
+# Check your answer
+q3.check()
+
+4.
 
