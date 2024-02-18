@@ -1,1 +1,47 @@
+0.
+import pandas as pd
+pd.set_option("display.max_rows", 5)
+reviews = pd.read_csv("../input/wine-reviews/winemag-data-130k-v2.csv", index_col=0)
 
+from learntools.core import binder; binder.bind(globals())
+from learntools.pandas.summary_functions_and_maps import *
+print("Setup complete.")
+
+reviews.head()
+
+1.
+median_points = reviews.points.median()
+print(median_points)
+
+# Check your answer
+q1.check()
+
+2.
+countries = reviews.country.unique()
+print(countries)
+
+# Check your answer
+q2.check()
+
+3.
+reviews_per_country = reviews.country.value_counts()
+print(reviews_per_country)
+# Check your answer
+q3.check()
+
+4. 
+# Assuming 'reviews' is your DataFrame and it contains a column named 'price'
+#mean_price = reviews['price'].mean()
+
+# Subtract the mean price from every element in the 'price' column
+#centered_price = reviews['price'] - mean_price
+#print(centered_price)
+centered_price = reviews.price - reviews.price.mean()
+print(centered_price)
+
+# Check your answer
+q4.check()
+
+5.
+
+q4.check()
