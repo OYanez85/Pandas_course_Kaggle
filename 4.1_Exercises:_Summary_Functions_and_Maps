@@ -60,6 +60,21 @@ print(descriptor_counts)
 q6.check()
 
 7.
+def stars(row): 
+    if row.points >= 95:
+        return 3 
+    elif row.points >= 85 and row.points < 95:
+        return 2 
+    elif row.country == 'Canada':
+        return 3
+    else :
+        return 1
+    
+star_ratings = reviews.apply(stars, axis='columns')
+
+# Check your answer
+q7.check()
+
 
 
 
