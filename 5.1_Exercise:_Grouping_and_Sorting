@@ -10,15 +10,12 @@ q1.check()
 
 2.
 
-best_rating_per_price = reviews.groupby('price')['points'].max().sort_index
-#best_rating_per_price_sorted = best_rating_per_price.sort_index(ascending=False)
+best_rating_per_price = reviews.groupby('price')['points'].max().sort_index()
 print(best_rating_per_price)
 
-#sorted_by_price = reviews.sort_values(by='price', ascending=False)
-#print(sorted_by_price)
 
-sorted_by_points = reviews.sort_values(by='points', ascending=False)
-print(sorted_by_points)
+# Check your answer
+q2.check()
 
 
 # Check your answer
